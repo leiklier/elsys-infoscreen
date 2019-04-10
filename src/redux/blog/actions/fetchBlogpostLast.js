@@ -20,16 +20,38 @@ export default function fetchBlogpostLast() {
 		return axios
 			.get(queryUrl)
 			.then(response => {
-				const { title, date, excerpt, link } = response.data[0]
+				const { title, date, excerpt, link, featured_media } = response.data[0]
+
+				let payload = {
+					title: title.rendered,
+					date,
+					excerpt: excerpt.rendered,
+					link
+				}
+
+				// Have to fetch imageUrl in separate query:
+				if (featured_media) {
+					const imageQueryUrl =
+						blogConfig.host + blogConfig.basePath + 'media/' + featured_media
+
+					axios.get(imageQueryUrl).then(response => {
+						const imageUrl = response.data.guid.rendered
+
+						payload = {
+							...payload,
+							imageUrl
+						}
+
+						dispatch({
+							type: FETCH_BLOGPOST_LAST_FULFILLED,
+							payload
+						})
+					})
+				}
 
 				dispatch({
 					type: FETCH_BLOGPOST_LAST_FULFILLED,
-					payload: {
-						title: title.rendered,
-						date,
-						excerpt: excerpt.rendered,
-						link
-					}
+					payload
 				})
 			})
 			.catch(error => {

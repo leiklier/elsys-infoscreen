@@ -4,7 +4,7 @@ export default function reducer(
 	state = {
 		lastPost: {
 			title: 'No post fetched',
-			timePublished: null,
+			date: null,
 			excerpt: 'No summary provided',
 			imageUrl: null,
 			link: null,
