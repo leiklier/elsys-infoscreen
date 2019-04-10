@@ -1,3 +1,5 @@
+import fetchBlogpostLast from './fetchBlogpostLast'
+
 export default function reducer(
 	state = {
 		lastPost: {
@@ -13,5 +15,5 @@ export default function reducer(
 	},
 	action
 ) {
-	return state
+	return fetchBlogpostLast(state, action) || state
 }
