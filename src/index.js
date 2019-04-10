@@ -1,3 +1,8 @@
+/**
+ * ~src/index.js
+ * This is the main entry file for Reactjs
+ */
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
