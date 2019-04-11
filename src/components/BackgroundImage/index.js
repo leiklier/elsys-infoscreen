@@ -18,7 +18,8 @@ class BackgroundImage extends Component {
 			<img
 				src={imagePath}
 				style={{
-					width: '100vw',
+					minWidth: '100vw',
+					minHeight: '100vh',
 					zIndex: '-1',
 					// CSS3-type vertical and horizontal centering:
 					// (source: https://www.w3.org/Style/Examples/007/center.en.html)
