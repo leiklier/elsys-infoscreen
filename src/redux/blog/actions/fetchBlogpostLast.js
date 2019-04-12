@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 import { constants as blogConfig } from '../../../config/blog'
-
+import { extractSummary } from '../controllers'
 import {
 	FETCH_BLOGPOST_LAST,
 	FETCH_BLOGPOST_LAST_FULFILLED,
@@ -20,12 +20,12 @@ export default function fetchBlogpostLast() {
 		return axios
 			.get(queryUrl)
 			.then(response => {
-				const { title, date, excerpt, link, featured_media } = response.data[0]
+				const { title, date, content, link, featured_media } = response.data[0]
 
 				let payload = {
 					title: title.rendered,
 					date,
-					summary: excerpt.rendered,
+					summary: extractSummary(content.rendered),
 					link
 				}
 
