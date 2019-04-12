@@ -5,8 +5,8 @@ import { constants as blogConfig } from '../../config/blog'
 import { fetchBlogpostLast } from '../../redux/actions'
 
 import BackgroundImage from '../../components/BackgroundImage'
-import BlogpostTitle from '../../components/BlogpostTitle'
-import BlogpostDate from '../../components/BlogpostDate'
+import Title from './components/Title'
+import Date from './components/Date'
 
 @connect(
 	null,
@@ -32,8 +32,8 @@ class LastBlogpost extends Component {
 		return (
 			<div>
 				{lastPost.title}, {lastPost.excerpt}
-				<BlogpostTitle>{lastPost.title}</BlogpostTitle>
-				<BlogpostDate date={lastPost.date} />
+				<Title>{lastPost.title}</Title>
+				<Date date={lastPost.date} />
 				<BackgroundImage src={lastPost.imageUrl} />
 			</div>
 		)
