@@ -5,7 +5,7 @@ export default function reducer(
 		lastPost: {
 			title: 'No post fetched',
 			date: null,
-			excerpt: 'No summary provided',
+			summary: 'No summary provided',
 			imageUrl: null,
 			link: null,
 			fetching: false,

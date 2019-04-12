@@ -25,7 +25,7 @@ export default function fetchBlogpostLast() {
 				let payload = {
 					title: title.rendered,
 					date,
-					excerpt: excerpt.rendered,
+					summary: excerpt.rendered,
 					link
 				}
 

@@ -32,7 +32,7 @@ class LastBlogpost extends Component {
 		const { lastPost } = this.props
 		return (
 			<div>
-				{lastPost.title}, {lastPost.excerpt}
+				{lastPost.title}, {lastPost.summary}
 				<Textwrapper>
 					<Title>{lastPost.title}</Title>
 					<Date date={lastPost.date} />
