@@ -2,22 +2,29 @@
 
 .blog {
 	font-family: @font-family;
-	display: inline-block;
+}
+
+.blog.textwrapper {
 	position: fixed;
-	left: 0;
-	margin-left: @margin-left;
+	top: 61.8%;
+	transform: translate(0, -61.8%);
+	left: @margin-lg;
+	margin: 0;
+	padding: 0;
 }
 
 h1.blog {
 	color: @primary-text-color;
 	background-color: @primary-background-color;
 	padding: @padding-md;
-	top: 20vh;
+	display: block;
+	margin: @margin-sm 0 @margin-sm 0;
 }
 
 p.blog.date {
 	color: @secondary-text-color;
 	background-color: @secondary-background-color;
 	padding: @padding-sm;
-	top: 35vh;
+	display: block;
+	top: @margin-xs 0 @margin-xs 0;
 }
