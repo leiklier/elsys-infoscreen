@@ -6,6 +6,7 @@ import { fetchBlogpostLast } from '../../redux/actions'
 
 import BackgroundImage from '../../components/BackgroundImage'
 import BlogpostTitle from '../../components/BlogpostTitle'
+import BlogpostDate from '../../components/BlogpostDate'
 
 @connect(
 	null,
@@ -32,6 +33,7 @@ class LastBlogpost extends Component {
 			<div>
 				{lastPost.title}, {lastPost.excerpt}
 				<BlogpostTitle>{lastPost.title}</BlogpostTitle>
+				<BlogpostDate date={lastPost.date} />
 				<BackgroundImage src={lastPost.imageUrl} />
 			</div>
 		)
