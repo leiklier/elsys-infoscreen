@@ -1,17 +1,10 @@
 import fetchBlogpostLast from './fetchBlogpostLast'
+import { constants as blogConfig } from '../../../config/blog'
+import { constructPostSkeleton } from '../controllers'
 
 export default function reducer(
 	state = {
-		lastPost: {
-			title: 'No post fetched',
-			date: null,
-			summary: 'No summary provided',
-			imageUrl: null,
-			link: null,
-			fetching: false,
-			fetched: false,
-			error: null
-		}
+		posts: new Array(blogConfig.totalPosts).fill(constructPostSkeleton())
 	},
 	action
 ) {
