@@ -8,7 +8,7 @@ class BlogpostDate extends Component {
 
 	render() {
 		const { date } = this.props
-		return <p classname="blog date">{formatDate(date)}</p>
+		return <p className="blog date">{formatDate(date)}</p>
 	}
 }
 
