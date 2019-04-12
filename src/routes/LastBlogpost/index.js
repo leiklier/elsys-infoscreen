@@ -8,6 +8,7 @@ import BackgroundImage from '../../components/BackgroundImage'
 import Textwrapper from './components/Textwrapper'
 import Title from './components/Title'
 import Date from './components/Date'
+import Summary from './components/Summary'
 
 @connect(
 	null,
@@ -32,10 +33,10 @@ class LastBlogpost extends Component {
 		const { lastPost } = this.props
 		return (
 			<div>
-				{lastPost.title}, {lastPost.summary}
 				<Textwrapper>
 					<Title>{lastPost.title}</Title>
 					<Date date={lastPost.date} />
+          <Summary>{lastPost.summary}</Summary>
 				</Textwrapper>
 				<BackgroundImage src={lastPost.imageUrl} />
 			</div>
