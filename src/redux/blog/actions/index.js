@@ -1,1 +1,1 @@
-export { default as fetchBlogpostLast } from './fetchBlogpostLast'
+export { default as fetchBlogpostsLast } from './fetchBlogpostsLast'

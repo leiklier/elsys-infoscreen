@@ -1,12 +1,15 @@
-import fetchBlogpostLast from './fetchBlogpostLast'
+import fetchBlogpostsLast from './fetchBlogpostsLast'
 import { constants as blogConfig } from '../../../config/blog'
 import { constructPostSkeleton } from '../controllers'
 
 export default function reducer(
 	state = {
-		posts: new Array(blogConfig.totalPosts).fill(constructPostSkeleton())
+		posts: new Array(blogConfig.totalPosts).fill(constructPostSkeleton()),
+		fetchingPosts: false,
+		fetchedPosts: false,
+		errorPosts: false
 	},
 	action
 ) {
-	return fetchBlogpostLast(state, action) || state
+	return fetchBlogpostsLast(state, action) || state
 }

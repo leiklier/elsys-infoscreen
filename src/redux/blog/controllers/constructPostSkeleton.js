@@ -4,9 +4,6 @@ export default function constructPostSkeleton() {
 		date: null,
 		summary: 'No summary provided',
 		imageUrl: null,
-		link: null,
-		fetching: false,
-		fetched: false,
-		error: null
+		link: null
 	}
 }
