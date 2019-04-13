@@ -1,4 +1,6 @@
 import axios from 'axios'
+import { Html5Entities as Entities } from 'html-entities'
+const entities = new Entities()
 
 import { constants as blogConfig } from '../../../config/blog'
 import { extractSummary } from '../controllers'
@@ -31,9 +33,9 @@ export default function fetchBlogpostLast() {
 						i
 					]
 					let post = {
-						title: title.rendered,
-						date,
-						summary: extractSummary(content.rendered),
+						title: entities.decode(title.rendered),
+						date: entities.decode(date),
+						summary: entities.decode(extractSummary(content.rendered)),
 						link
 					}
 					// Have to fetch imageUrl in separate queries:
