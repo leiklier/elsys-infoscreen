@@ -59,12 +59,19 @@ export default function fetchBlogpostLast() {
 						payload[i].imageUrl = responses[responseIndex].data.guid.rendered
 						responseIndex++
 					}
+
+					dispatch({
+						type: FETCH_BLOGPOSTS_LAST_FULFILLED,
+						payload
+					})
 				})
 
-				dispatch({
-					type: FETCH_BLOGPOSTS_LAST_FULFILLED,
-					payload
-				})
+				if (imageQueries.filter(el => typeof el !== 'undefined').length === 0) {
+					dispatch({
+						type: FETCH_BLOGPOSTS_LAST_FULFILLED,
+						payload
+					})
+				}
 			})
 			.catch(error => {
 				dispatch({

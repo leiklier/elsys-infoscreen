@@ -11,8 +11,8 @@ export default function fetchBlogpostLast(state, action) {
 	case FETCH_BLOGPOSTS_LAST: {
 		let newState = cloneDeep(state)
 
-		newState.posts = {
-			...newState.posts,
+		newState = {
+			...newState,
 			fetchingPosts: true
 		}
 
@@ -22,12 +22,12 @@ export default function fetchBlogpostLast(state, action) {
 	case FETCH_BLOGPOSTS_LAST_FULFILLED: {
 		let newState = cloneDeep(state)
 
-		newState.posts = {
-			...newState.posts,
+		newState = {
+			...newState,
+			posts: action.payload,
 			fetchingPosts: false,
 			fetchedPosts: true,
-			errorPosts: null,
-			...action.payload
+			errorPosts: null
 		}
 
 		return newState
@@ -36,11 +36,11 @@ export default function fetchBlogpostLast(state, action) {
 	case FETCH_BLOGPOSTS_LAST_REJECTED: {
 		let newState = cloneDeep(state)
 
-		newState.posts = {
-			...newState.posts,
+		newState = {
+			...newState,
+			...action.payload,
 			fetchingPosts: false,
-			fetchedPosts: false,
-			...action.payload
+			fetchedPosts: false
 		}
 
 		return newState
