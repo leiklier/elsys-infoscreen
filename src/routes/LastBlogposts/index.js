@@ -84,7 +84,7 @@ class LastBlogposts extends Component {
 				<Textwrapper>
 					<Title>{currentPost.title}</Title>
 					<Date date={currentPost.date} />
-					<Summary>{currentPost.summary}</Summary>
+					{currentPost.summary ? <Summary>{currentPost.summary}</Summary> : ''}
 				</Textwrapper>
 				<BackgroundImage src={currentPost.imageUrl} />
 			</div>
