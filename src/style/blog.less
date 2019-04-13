@@ -13,26 +13,31 @@
 	padding: 0;
 }
 
+.blog mark {
+	color: @text-color-primary;
+	background-color: @background-color-primary;
+}
+
 h1.blog {
-	color: @primary-text-color;
-	background-color: @primary-background-color;
+	font-size: @font-size-lg;
 	padding: @padding-md;
 	display: block;
-	margin: @margin-sm 0 @margin-sm 0;
+	margin: 0;
 }
 
 p.blog.date {
-	color: @secondary-text-color;
-	background-color: @secondary-background-color;
+	font-size: @font-size-xs;
 	padding: @padding-sm;
 	display: block;
 	top: @margin-xs 0 @margin-xs 0;
 }
 
 p.blog.summary {
-	color: @primary-text-color;
-	background-color: @secondary-background-color;
+	font-size: @font-size-sm;
 	padding: @padding-sm;
 	display: block;
 	top: @margin-xs 0 @margin-xs 0;
+	mark {
+		line-height: @line-height-xs;
+	}
 }
