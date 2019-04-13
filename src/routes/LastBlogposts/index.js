@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import moment from 'moment'
+moment().format()
 
 import { constants as blogConfig } from '../../config/blog'
 import { fetchBlogpostsLast } from '../../redux/actions'
@@ -10,6 +12,7 @@ import Textwrapper from './components/Textwrapper'
 import Title from './components/Title'
 import Date from './components/Date'
 import Summary from './components/Summary'
+import Progressbar from './components/Progressbar'
 
 @connect(
 	null,
@@ -27,7 +30,8 @@ class LastBlogposts extends Component {
 		this.state = {
 			cycle: {
 				intervalId: null,
-				currentPostId: 0
+				currentPostId: 0,
+				lastTime: moment().valueOf()
 			},
 			fetch: {
 				intervalId: null
@@ -56,7 +60,8 @@ class LastBlogposts extends Component {
 				cycle: {
 					...this.state.cycle,
 					currentPostId:
-						(this.state.cycle.currentPostId + 1) % blogConfig.totalPosts
+						(this.state.cycle.currentPostId + 1) % blogConfig.totalPosts,
+					lastTime: moment().valueOf()
 				}
 			})
 		}, (this.props.cycleTime / blogConfig.totalPosts) * 1000)
@@ -82,13 +87,17 @@ class LastBlogposts extends Component {
 
 		return (
 			<div>
-        <Header />
+				<Header />
 				<Textwrapper>
 					<Title>{currentPost.title}</Title>
 					<Date date={currentPost.date} />
 					{currentPost.summary ? <Summary>{currentPost.summary}</Summary> : ''}
 				</Textwrapper>
 				<BackgroundImage src={currentPost.imageUrl} />
+				<Progressbar
+					start={this.state.cycle.lastTime}
+					duration={(this.props.cycleTime / blogConfig.totalPosts) * 1000}
+				/>
 			</div>
 		)
 	}

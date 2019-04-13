@@ -45,3 +45,24 @@ p.blog.summary {
 		line-height: @line-height-xs;
 	}
 }
+
+div.blog.progress.container {
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background-color: @background-color-secondary;
+	width: 100%;
+	height: @margin-lg;
+}
+
+div.blog.progress.bar {
+	margin: 0;
+	position: relative;
+	top: 50%;
+	transform: translate(0, -50%);
+	background-color: @text-color-primary;
+	height: 30%;
+
+}
