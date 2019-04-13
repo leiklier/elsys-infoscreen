@@ -21,7 +21,7 @@ class App extends Component {
 		return (
 			<div className="App" style={{ height: '100%', width: '100%' }}>
 				<LastBlogposts
-					cycleTime={30 /*Seconds in total to cycle through all posts*/}
+            cycleTime={5 * 60 /*Seconds in total to cycle through all posts*/}
 					posts={blog.posts}
 					fetching={blog.fetchingPosts}
 					fetched={blog.fetchedPosts}

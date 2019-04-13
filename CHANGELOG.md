@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0] - 2019-04-14
+
+### Changed
+
+* Increased the interval used for cycling through all LastBlogposts in order to fit a production environment.
+
 ## [1.0.0] - 2019-04-13
 
 ### Added
