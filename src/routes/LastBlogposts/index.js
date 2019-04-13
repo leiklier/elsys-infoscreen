@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { constants as blogConfig } from '../../config/blog'
-import { fetchBlogpostLast } from '../../redux/actions'
+import { fetchBlogpostsLast } from '../../redux/actions'
 
 import BackgroundImage from '../../components/BackgroundImage'
 import Textwrapper from './components/Textwrapper'
@@ -15,12 +15,12 @@ import Summary from './components/Summary'
 	(dispatch, ownProps) => {
 		return {
 			fetch: () => {
-				dispatch(fetchBlogpostLast())
+				dispatch(fetchBlogpostsLast())
 			}
 		}
 	}
 )
-class LastBlogpost extends Component {
+class LastBlogposts extends Component {
 	constructor(props) {
 		super(props)
 	}
@@ -30,18 +30,18 @@ class LastBlogpost extends Component {
 	}
 
 	render() {
-		const { lastPost } = this.props
+		const { posts, fetching, fetched } = this.props
 		return (
 			<div>
 				<Textwrapper>
-					<Title>{lastPost.title}</Title>
-					<Date date={lastPost.date} />
-          <Summary>{lastPost.summary}</Summary>
+					<Title>{posts[0].title}</Title>
+					<Date date={posts[0].date} />
+					<Summary>{posts[0].summary}</Summary>
 				</Textwrapper>
-				<BackgroundImage src={lastPost.imageUrl} />
+				<BackgroundImage src={posts[0].imageUrl} />
 			</div>
 		)
 	}
 }
 
-export default LastBlogpost
+export default LastBlogposts

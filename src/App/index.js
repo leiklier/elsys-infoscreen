@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import '../style/index.less'
 
-import LastBlogpost from '../routes/LastBlogpost'
+import LastBlogposts from '../routes/LastBlogposts'
 
 @connect(store => {
 	return {
@@ -20,7 +20,12 @@ class App extends Component {
 
 		return (
 			<div className="App" style={{ height: '100%', width: '100%' }}>
-				<LastBlogpost lastPost={blog.lastPost} />
+				<LastBlogposts
+					posts={blog.posts}
+					fetching={blog.fetchingPosts}
+					fetched={blog.fetchedPosts}
+					error={blog.errorPosts}
+				/>
 			</div>
 		)
 	}
