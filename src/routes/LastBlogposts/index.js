@@ -27,12 +27,27 @@ class LastBlogposts extends Component {
 			cycle: {
 				intervalId: null,
 				currentPostId: 0
+			},
+			fetch: {
+				intervalId: null
 			}
 		}
 	}
 
 	componentDidMount() {
 		this.props.fetch()
+
+		// Fetch posts at certain interval
+		const intervalIdFetch = setInterval(
+			this.props.fetch,
+			blogConfig.updateInterval * 1000
+		)
+		this.setState({
+			fetch: {
+				...this.state.fetch,
+				intervalId: intervalIdFetch
+			}
+		})
 
 		// Cycle through blog posts
 		const intervalIdCycle = setInterval(() => {
@@ -54,6 +69,7 @@ class LastBlogposts extends Component {
 	}
 
 	componentWillUnmount() {
+		clearInterval(this.state.fetch.intervalId)
 		clearInterval(this.state.cycle.intervalId)
 	}
 
