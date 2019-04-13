@@ -23,22 +23,54 @@ import Summary from './components/Summary'
 class LastBlogposts extends Component {
 	constructor(props) {
 		super(props)
+		this.state = {
+			cycle: {
+				intervalId: null,
+				currentPostId: 0
+			}
+		}
 	}
 
 	componentDidMount() {
 		this.props.fetch()
+
+		// Cycle through blog posts
+		const intervalIdCycle = setInterval(() => {
+			this.setState({
+				cycle: {
+					...this.state.cycle,
+					currentPostId:
+						(this.state.cycle.currentPostId + 1) % blogConfig.totalPosts
+				}
+			})
+		}, (this.props.cycleTime / blogConfig.totalPosts) * 1000)
+
+		this.setState({
+			cycle: {
+				...this.state.cycle,
+				intervalId: intervalIdCycle
+			}
+		})
+	}
+
+	componentWillUnmount() {
+		clearInterval(this.state.cycle.intervalId)
 	}
 
 	render() {
-		const { posts, fetching, fetched } = this.props
+		const { cycleTime, posts, fetching, fetched } = this.props
+		const { currentPostId } = { ...this.state.cycle }
+
+		const currentPost = posts[currentPostId]
+
 		return (
 			<div>
 				<Textwrapper>
-					<Title>{posts[0].title}</Title>
-					<Date date={posts[0].date} />
-					<Summary>{posts[0].summary}</Summary>
+					<Title>{currentPost.title}</Title>
+					<Date date={currentPost.date} />
+					<Summary>{currentPost.summary}</Summary>
 				</Textwrapper>
-				<BackgroundImage src={posts[0].imageUrl} />
+				<BackgroundImage src={currentPost.imageUrl} />
 			</div>
 		)
 	}
