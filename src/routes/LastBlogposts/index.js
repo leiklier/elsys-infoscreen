@@ -89,18 +89,33 @@ class LastBlogposts extends Component {
 
 		return (
 			<div>
-				<PostsProgress currentPostId={currentPostId} totalPosts={totalPosts} />
+				{totalPosts > 1 ? (
+					<PostsProgress
+						currentPostId={currentPostId}
+						totalPosts={totalPosts}
+					/>
+				) : (
+					''
+				)}
+
 				<Header />
+
 				<Textwrapper>
 					<Title>{currentPost.title}</Title>
 					<Date date={currentPost.date} />
 					{currentPost.summary ? <Summary>{currentPost.summary}</Summary> : ''}
 				</Textwrapper>
+
+				{totalPosts > 1 ? (
+					<Progressbar
+						start={this.state.cycle.lastTime}
+						duration={(this.props.cycleTime / blogConfig.totalPosts) * 1000}
+					/>
+				) : (
+					''
+				)}
+
 				<BackgroundImage src={currentPost.imageUrl} />
-				<Progressbar
-					start={this.state.cycle.lastTime}
-					duration={(this.props.cycleTime / blogConfig.totalPosts) * 1000}
-				/>
 			</div>
 		)
 	}
