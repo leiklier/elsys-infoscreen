@@ -1,6 +1,16 @@
 # Elsys Infoscreen
 
-Web application to be used for an infoscreen placed in Koopen at Elbygget, NTNU Gløshaugen. The web application displays the last blog post currently published at the [Elsys Blog](http://elsys.blog).
+Web application to be used for an infoscreen placed in Koopen at Elbygget, NTNU Gløshaugen. The web application displays the last blog post currently published at the [Elsys Blog](http://elsys.blog). 
+
+Built in **Node.js** using the following libraries/frameworks:
+
+* React
+* Redux w/ thunk
+* Express
+* LESS
+* Babel
+* Webpack
+* axios
 
 ---
 
