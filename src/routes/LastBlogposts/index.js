@@ -7,6 +7,7 @@ import { constants as blogConfig } from '../../config/blog'
 import { fetchBlogpostsLast } from '../../redux/actions'
 
 import BackgroundImage from '../../components/BackgroundImage'
+import PostsProgress from './components/PostsProgress'
 import Header from './components/Header'
 import Textwrapper from './components/Textwrapper'
 import Title from './components/Title'
@@ -82,11 +83,13 @@ class LastBlogposts extends Component {
 	render() {
 		const { cycleTime, posts, fetching, fetched } = this.props
 		const { currentPostId } = { ...this.state.cycle }
+		const { totalPosts } = blogConfig
 
 		const currentPost = posts[currentPostId]
 
 		return (
 			<div>
+				<PostsProgress currentPostId={currentPostId} totalPosts={totalPosts} />
 				<Header />
 				<Textwrapper>
 					<Title>{currentPost.title}</Title>

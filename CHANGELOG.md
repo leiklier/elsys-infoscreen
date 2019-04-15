@@ -7,8 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-* Static Header which shows that blog posts are shown when in LastBlogposts view
+* Static Header in top left corner which shows that blog posts are shown when in LastBlogposts view
 * ProgressBar to bottom of screen which shows how much time it is left before next blog post when in LastBlogposts view
+* PostsProgress overlay in top right corner which shows the progress of cycling posts in LastBlogposts view.
 
 ## [1.0.1] - 2019-04-13
 
