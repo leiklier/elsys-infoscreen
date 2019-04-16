@@ -81,7 +81,7 @@ class LastBlogposts extends Component {
 	}
 
 	render() {
-		const { cycleTime, posts, fetching, fetched } = this.props
+		const { cycleTime, posts, isFetching, isFetched } = this.props
 		const { currentPostId } = { ...this.state.cycle }
 		const { totalPosts } = blogConfig
 
@@ -89,13 +89,11 @@ class LastBlogposts extends Component {
 
 		return (
 			<div>
-				{totalPosts > 1 ? (
+				{totalPosts > 1 && (
 					<PostsProgress
 						currentPostId={currentPostId}
 						totalPosts={totalPosts}
 					/>
-				) : (
-					''
 				)}
 
 				<Header />
@@ -103,16 +101,14 @@ class LastBlogposts extends Component {
 				<Textwrapper>
 					<Title>{currentPost.title}</Title>
 					<Date date={currentPost.date} />
-					{currentPost.summary ? <Summary>{currentPost.summary}</Summary> : ''}
+					{currentPost.summary && <Summary>{currentPost.summary}</Summary>}
 				</Textwrapper>
 
-				{totalPosts > 1 ? (
+				{totalPosts > 1 && (
 					<Progressbar
 						start={this.state.cycle.lastTime}
 						duration={(this.props.cycleTime / blogConfig.totalPosts) * 1000}
 					/>
-				) : (
-					''
 				)}
 
 				<BackgroundImage src={currentPost.imageUrl} />

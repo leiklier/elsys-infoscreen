@@ -5,8 +5,8 @@ import { constructPostSkeleton } from '../controllers'
 export default function reducer(
 	state = {
 		posts: new Array(blogConfig.totalPosts).fill(constructPostSkeleton()),
-		fetchingPosts: false,
-		fetchedPosts: false,
+		isFetchingPosts: false,
+		isFetchedPosts: false,
 		errorPosts: false
 	},
 	action

@@ -13,7 +13,7 @@ export default function fetchBlogpostLast(state, action) {
 
 		newState = {
 			...newState,
-			fetchingPosts: true
+			isFetchingPosts: true
 		}
 
 		return newState
@@ -25,8 +25,8 @@ export default function fetchBlogpostLast(state, action) {
 		newState = {
 			...newState,
 			posts: action.payload,
-			fetchingPosts: false,
-			fetchedPosts: true,
+			isFetchingPosts: false,
+			isFetchedPosts: true,
 			errorPosts: null
 		}
 
@@ -39,8 +39,8 @@ export default function fetchBlogpostLast(state, action) {
 		newState = {
 			...newState,
 			...action.payload,
-			fetchingPosts: false,
-			fetchedPosts: false
+			isFetchingPosts: false,
+			isFetchedPosts: false
 		}
 
 		return newState
