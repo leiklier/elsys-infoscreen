@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+* Summary in LastBlogposts is now block instead of `<mark>`-ed, and is positioned in lower right corner.
+
 ## [1.1.1] - 2019-04-15
 
 ### Changed
