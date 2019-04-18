@@ -101,8 +101,9 @@ class LastBlogposts extends Component {
 				<Textwrapper>
 					<Title>{currentPost.title}</Title>
 					<Date date={currentPost.date} />
-					{currentPost.summary && <Summary>{currentPost.summary}</Summary>}
 				</Textwrapper>
+
+				{currentPost.summary && <Summary>{currentPost.summary}</Summary>}
 
 				{totalPosts > 1 && (
 					<Progressbar

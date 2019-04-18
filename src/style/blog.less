@@ -6,7 +6,7 @@
 
 .blog.textwrapper {
 	position: fixed;
-	top: 61.8%;
+	top: 50%;
 	transform: translate(0, -61.8%);
 	left: @margin-lg;
 	margin: 0;
@@ -20,6 +20,7 @@
 
 h1.blog.header {
 	margin: 0;
+	padding: 0;
 	position: fixed;
 	top: @margin-md;
 	left: @margin-lg;
@@ -28,6 +29,7 @@ h1.blog.header {
 
 h1.blog.progress.posts {
 	margin: 0;
+	padding: 0;
 	position: fixed;
 	top: @margin-md;
 	right: @margin-lg;
@@ -36,26 +38,29 @@ h1.blog.progress.posts {
 
 h1.blog {
 	font-size: @font-size-lg;
-	padding: @padding-md;
+	padding: @padding-md 0 @padding-md 0;
 	display: block;
 	margin: 0;
 }
 
 p.blog.date {
 	font-size: @font-size-xs;
-	padding: @padding-sm;
+	padding: @padding-sm 0 @padding-sm 0;
 	display: block;
 	top: @margin-xs 0 @margin-xs 0;
 }
 
 p.blog.summary {
+	color: @text-color-primary;
+	background-color: @background-color-primary;
 	font-size: @font-size-sm;
 	padding: @padding-sm;
 	display: block;
-	top: @margin-xs 0 @margin-xs 0;
-	mark {
-		line-height: @line-height-xs;
-	}
+	width: 60%;
+	margin: 0;
+	position: fixed;
+	bottom: @margin-lg + @margin-lg;
+	right: @margin-lg;
 }
 
 div.blog.progress.container {

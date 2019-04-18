@@ -6,7 +6,7 @@ class Summary extends Component {
 	}
 
 	render() {
-    return <p className="blog summary"><mark>{this.props.children}</mark></p>
+		return <p className="blog summary">{this.props.children}</p>
 	}
 }
 
