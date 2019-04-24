@@ -1,4 +1,5 @@
 import axios from 'axios'
+import striptags from 'striptags'
 import { Html5Entities as Entities } from 'html-entities'
 const entities = new Entities()
 
@@ -29,15 +30,27 @@ export default function fetchBlogpostLast() {
 				let imageQueries = new Array(blogConfig.totalPosts)
 
 				for (const i in payload) {
-					const { title, date, content, link, featured_media } = response.data[
-						i
-					]
+					const {
+						title,
+						date,
+						content,
+						excerpt,
+						link,
+						featured_media
+					} = response.data[i]
+
 					let post = {
 						title: entities.decode(title.rendered),
 						date: entities.decode(date),
-						summary: entities.decode(extractSummary(content.rendered)),
+						summary: entities.decode(
+							extractSummary(
+								content.rendered,
+								blogConfig.summaryFallbackToExcerpt && excerpt.rendered
+							)
+						),
 						link
 					}
+
 					// Have to fetch imageUrl in separate queries:
 					if (featured_media) {
 						imageQueries[i] = axios.get(
@@ -57,7 +70,7 @@ export default function fetchBlogpostLast() {
 					let responseIndex = 0
 					for (const i in imageQueries) {
 						if (typeof imageQueries[i] === 'undefined') continue
-						if (responses.length - 1 === i) break
+						if (responses.length - 1 === i) break // all imageQueries have already been gone through
 						payload[i].imageUrl = responses[responseIndex].data.guid.rendered
 						responseIndex++
 					}

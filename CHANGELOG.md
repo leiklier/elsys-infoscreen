@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+* Summary in LastBlogposts has a fallback to excerpt if the blog post does not contain an excerpt.
+
 ## [1.2.0] - 2019-04-18
 
 ### Changed
