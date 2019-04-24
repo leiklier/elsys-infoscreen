@@ -46,7 +46,7 @@ class LastBlogposts extends Component {
 		// Fetch posts at certain interval
 		const intervalIdFetch = setInterval(
 			this.props.fetch,
-			blogConfig.updateInterval * 1000
+			blogConfig.fetchInterval * 1000
 		)
 		this.setState({
 			fetch: {
@@ -65,7 +65,7 @@ class LastBlogposts extends Component {
 					lastTime: moment().valueOf()
 				}
 			})
-		}, (this.props.cycleTime / blogConfig.totalPosts) * 1000)
+		}, blogConfig.cycleInterval * 1000)
 
 		this.setState({
 			cycle: {
@@ -81,7 +81,7 @@ class LastBlogposts extends Component {
 	}
 
 	render() {
-		const { cycleTime, posts, isFetching, isFetched } = this.props
+		const { posts, isFetching, isFetched } = this.props
 		const { currentPostId } = { ...this.state.cycle }
 		const { totalPosts } = blogConfig
 
@@ -108,7 +108,7 @@ class LastBlogposts extends Component {
 				{totalPosts > 1 && (
 					<Progressbar
 						start={this.state.cycle.lastTime}
-						duration={(this.props.cycleTime / blogConfig.totalPosts) * 1000}
+						duration={blogConfig.cycleInterval * 1000}
 					/>
 				)}
 
