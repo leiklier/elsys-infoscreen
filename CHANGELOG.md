@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.0] - 2019-04-24
+
 ### Changed
 
 * Summary in LastBlogposts has a fallback to excerpt if the blog post does not contain an excerpt.
@@ -41,6 +43,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * View called LastBlogposts which cycles through the last couple of blogposts published at [elsys.blog](http://elsys.blog).  Refetches at certain intervals.
 
 [Unreleased]: https://github.com/leiklier/elsys-infoscreen/compare/1.2.0...HEAD
+[1.3.0]: https://github.com/leiklier/elsys-infoscreen/compare/1.2.0...1.3.0
 [1.2.0]: https://github.com/leiklier/elsys-infoscreen/compare/1.1.1...1.2.0
 [1.1.1]: https://github.com/leiklier/elsys-infoscreen/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/leiklier/elsys-infoscreen/compare/1.0.1...1.1.0
